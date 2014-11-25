@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/2/trunk/Rascal
+END
+PluginManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/2/trunk/Rascal/PluginManager.h
+END
+Rascal.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/2/trunk/Rascal/Rascal.vcxproj
+END
+stdafx.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/Rascal/stdafx.h
+END
+dllmain.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/Rascal/dllmain.cpp
+END
+Rascal.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/2/trunk/Rascal/Rascal.cpp
+END
+Rascal.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2/trunk/Rascal/Rascal.vcxproj.filters
+END
+Log4c.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/2/trunk/Rascal/Log4c.cpp
+END
+targetver.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/Rascal/targetver.h
+END
+PluginManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/Rascal/PluginManager.cpp
+END
+stdafx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/2/trunk/Rascal/stdafx.cpp
+END
+Rascal.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/Rascal/Rascal.h
+END
+Log4c.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/2/trunk/Rascal/Log4c.h
+END

@@ -1,0 +1,115 @@
+#pragma warning(disable:4996)
+#pragma warning(disable:4995)
+
+#include "StdAfx.h"
+#include "PluginManager.h"
+#include <wchar.h>
+
+#include "Log4c.h"
+
+bool PluginManager::isLoaded = false;
+auto_ptr<PluginManager> PluginManager::m_pInstance;
+
+PluginManager::PluginManager(void):m_dwPlugins(0)
+{
+	GetModuleFileName(NULL,m_szPath,MAX_PATH);
+	for(DWORD dwIndex = MAX_PATH - 1; dwIndex > 0; dwIndex--)
+	{
+		if(m_szPath[dwIndex] != L'\\')
+			m_szPath[dwIndex] = L'\0';
+		else
+			break;
+	}
+	wcscpy(m_szCfg, m_szPath);
+	wcscat(m_szCfg, L"settings.cfg");
+}
+
+
+PluginManager::~PluginManager(void)
+{
+}
+
+PluginManager* PluginManager::getInstance()
+{
+	if(m_pInstance.get() == NULL)
+		m_pInstance.reset(new PluginManager);
+	return m_pInstance.get();
+}
+
+void PluginManager::loadPlugins()
+{
+	if(isLoaded)
+		return;
+	else
+		isLoaded = true;
+
+	wchar_t szLibs[MAX_PATH];
+	wchar_t szLibPath[MAX_PLUGINS][MAX_PATH];
+	wchar_t szTmp[MAX_PATH];
+	DWORD	dwActualCount = 0;
+	DWORD	dwPtr = 0;
+
+	ZeroMemory(szLibs, MAX_PATH * sizeof(wchar_t));
+	ZeroMemory(szTmp, MAX_PATH * sizeof(wchar_t));
+	GetPrivateProfileString(L"rascal",L"lib",L"",szLibs, MAX_PATH, m_szCfg);
+	for(DWORD dwIndex = 0; dwIndex < MAX_PATH; dwIndex++)
+	{
+		if(szLibs[dwIndex] == L',')
+		{		
+			ZeroMemory(szLibPath[dwActualCount], MAX_PATH * sizeof(wchar_t));
+			wcscpy(szLibPath[dwActualCount], m_szPath);
+			wcscat(szLibPath[dwActualCount], szTmp);
+			ZeroMemory(szTmp, MAX_PATH * sizeof(wchar_t));
+			dwActualCount++;
+			dwPtr = 0;
+		}
+		else
+		{
+			szTmp[dwPtr++] = szLibs[dwIndex];
+		}
+		if(dwActualCount >= MAX_PLUGINS)
+			break;
+	}
+	
+	m_dwPlugins = dwActualCount;
+	OutputDebugStringW(L"PluginManager::loadPlugins()...Begin");
+	for(DWORD dwIndex = 0; dwIndex < m_dwPlugins; dwIndex++)
+	{
+		OutputDebugStringW(szLibPath[dwIndex]);
+		hPlugin[dwIndex] = ::LoadLibrary(szLibPath[dwIndex]);
+		if(hPlugin[dwIndex] != NULL)
+		{
+			iPluginsEntry[dwIndex] = 
+				(IPlugin)GetProcAddress(hPlugin[dwIndex], "doProcess");
+			if(iPluginsEntry[dwIndex] == NULL)
+			{
+				iPluginsEntry[dwIndex] = (IPlugin)PluginManager::doNull;
+				OutputDebugStringW(L"Failed GetProcAddress()");
+			}
+		}
+		else
+		{
+			iPluginsEntry[dwIndex] = (IPlugin)PluginManager::doNull;
+			OutputDebugStringW(L"Failed LoadLibrary()");
+		}
+	}
+
+	OutputDebugStringW(L"PluginManager::loadPlugins()...DONE//");
+}
+
+void PluginManager::unloadPlugins()
+{
+	if(!isLoaded)
+		return;
+
+	isLoaded = false;
+	OutputDebugStringW(L"PluginManager::unloadPlugins()...DONE//");
+	for(DWORD dwIndex = 0; dwIndex < m_dwPlugins; dwIndex++)
+		::FreeLibrary(hPlugin[dwIndex]);
+}
+
+void PluginManager::process(PBYTE pIn, DWORD dwSize)
+{
+	for(DWORD dwIndex = 0; dwIndex < m_dwPlugins; dwIndex++)
+		iPluginsEntry[dwIndex](pIn, dwSize);
+}

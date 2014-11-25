@@ -1,0 +1,296 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral (Sys. Default) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUSD)
+LANGUAGE LANG_NEUTRAL, SUBLANG_SYS_DEFAULT
+#pragma code_page(936)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_STR_READY           "MyVCR is Ready!"
+    IDS_STR_CAP             "Now capture is running..."
+    IDS_STR_PAUSE           "Capture paused."
+    IDS_STR_RNC             "Resolution cannot be changed while capturing."
+    IDS_STR_CRIL            "Camera resolution is illegal"
+    IDS_STR_ABOUT           "MyVCR BY KEVX\nThis is a free and open-source software.You can use or distribute it freely.\nBUT I cannot guarantee its safety or any potential threats.\nAnd You MUST NOT use it on illegal purpose. \nIf you find bug please contact me .^_^"
+    IDS_STR_BIGERR          "*No capture device is found.\n"
+    IDS_STR_NOAU            "*No audio jack is found.\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDSC_STATUS             "Status:"
+    IDSC_SVD                "Select video device:"
+    IDSC_SAD                "Select audio device:"
+    IDSC_SDR                "Desired resolution :"
+    IDSC_AOT                "Always on Top"
+    IDSC_CV                 "Capture voice"
+    IDSC_LANG               "Enable Chinese Version"
+    IDS_CAP_FINISHED        "Capture completed~! Output file is : %s"
+    IDS_WEBLINK_SITE        "<a>Visit My Site</a>"
+    IDS_ERR_MSG_TITLE       "The following problem was found : \n\n"
+    IDS_ERR_HELP            "\n\nPlease check the settings of your devices~"
+    IDS_PREVIEWING          "Now previewing..."
+    IDS_WHERE_TO_SAVE       "Save the video file:"
+END
+
+#endif    // Neutral (Sys. Default) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\MyVCR.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\this.ico"
+IDI_BTN_BEGIN           ICON                    "res\\btn_begin.ico"
+IDI_BTN_STOP            ICON                    "res\\btn_stop.ico"
+IDI_BTN_PAUSE           ICON                    "res\\btn_pause.ico"
+IDI_BTN_OPTION          ICON                    "res\\btn_option.ico"
+IDI_BTN_PREVIEW         ICON                    "res\\this32.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MYVCR DIALOGEX 0, 0, 225, 242
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MyVCR"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "",IDC_BEGIN,6,180,27,22,BS_ICON
+    PUSHBUTTON      "",IDC_STOP,32,180,26,22,BS_ICON
+    CONTROL         "",IDC_STATIC_L1,"Static",SS_BLACKFRAME,6,2,212,1,WS_EX_STATICEDGE
+    PUSHBUTTON      "",IDC_PAUSE,57,180,26,22,BS_ICON
+    PUSHBUTTON      "",IDC_OPTION,121,181,26,22,BS_ICON
+    CONTROL         "",IDC_STATIC_L2,"Static",SS_BLACKFRAME,6,169,212,1,WS_EX_STATICEDGE
+    LTEXT           "Status:",IDC_STATUS,6,212,129,11
+    CONTROL         138,IDC_STANDBY,"Static",SS_BITMAP,6,9,221,154
+    CONTROL         "",IDC_WEBLINK_SITE,"SysLink",WS_TABSTOP,158,209,60,17
+    PUSHBUTTON      "",IDC_PREVIEW,95,181,26,22,BS_ICON
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 314, 162
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,257,141,50,14
+    COMBOBOX        IDC_COMBO_DEVLST,7,17,142,73,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "%VideoDevices%",IDC_SVD,7,6,73,9
+    LTEXT           "%Resolution%",IDC_SDR,7,74,69,9
+    CONTROL         "%AlwaysOnTop%",IDC_CHECK_ONTOP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,111,68,11
+    LTEXT           "%AudioDevices%",IDC_SAD,7,36,73,9
+    COMBOBOX        IDC_COMBO_DEVLST_AU,7,47,142,63,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "%WithAudio%",IDC_CHECK_AUDIO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,128,59,11
+    CONTROL         "%USE CHINESE",IDC_CHECK_LANG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,95,113,102,8
+    COMBOBOX        IDC_COMBO_RESOLUTION,7,86,142,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_PLUGIN,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,162,19,133,81
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 268, 151
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,0,0,268,151
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,5
+ PRODUCTVERSION 1,0,0,5
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "KEVX"
+            VALUE "FileDescription", "MyVCR Main Executable"
+            VALUE "FileVersion", "1.0.0.5"
+            VALUE "InternalName", "MyVCR.exe"
+            VALUE "LegalCopyright", "(c) Kevx.  All rights reserved."
+            VALUE "OriginalFilename", "MyVCR.exe"
+            VALUE "ProductName", "MYVCR"
+            VALUE "ProductVersion", "1.0.0.5"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MYVCR, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 218
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 236
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 307
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 155
+    END
+
+    IDD_SPLASH, DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_TOP MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Start capture",              IDM_BEGIN_CAPTURE
+        MENUITEM "&Pause capture",              IDM_PAUSE_CAPTURE
+        MENUITEM "&Stop capture",               IDM_STOP_CAPTURE
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit program",               IDM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Options",                    IDM_OPTION
+    END
+    POPUP "&Help ..."
+    BEGIN
+        MENUITEM "How do I ...",                IDM_HOWDOI
+        MENUITEM SEPARATOR
+        MENUITEM "About Me",                    IDM_ABOUTME
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_SPLASH       BITMAP                  "res\\splash.bmp"
+IDB_BITMAP_STANDBY      BITMAP                  "res\\standby.bmp"
+IDB_BITMAP_STANDBY_HIGH BITMAP                  "res\\standby_High.bmp"
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\MyVCR.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

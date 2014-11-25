@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rascal_Monochrome", "Rascal_Monochrome\Rascal_Monochrome.vcxproj", "{2D303491-9505-4421-8E1F-64C3EC14D6A0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rascal_Tracker", "Rascal_Tracker\Rascal_Tracker.vcxproj", "{34EF3895-C37F-4C77-B1BD-F588E162AC0A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rascal_Xxx", "Rascal_Xxx\Rascal_Xxx.vcxproj", "{D0EB4240-FFEA-47F5-9742-29E114642999}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rascal_Dog", "Rascal_Dog\Rascal_Dog.vcxproj", "{F7F899D3-2940-44DE-82BA-D2D7EE263A49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tester", "Tester\Tester.vcxproj", "{556568AD-0F5F-4AC3-A6AA-8D5653A8C453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D303491-9505-4421-8E1F-64C3EC14D6A0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D303491-9505-4421-8E1F-64C3EC14D6A0}.Debug|Win32.Build.0 = Debug|Win32
+		{2D303491-9505-4421-8E1F-64C3EC14D6A0}.Release|Win32.ActiveCfg = Release|Win32
+		{2D303491-9505-4421-8E1F-64C3EC14D6A0}.Release|Win32.Build.0 = Release|Win32
+		{34EF3895-C37F-4C77-B1BD-F588E162AC0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34EF3895-C37F-4C77-B1BD-F588E162AC0A}.Debug|Win32.Build.0 = Debug|Win32
+		{34EF3895-C37F-4C77-B1BD-F588E162AC0A}.Release|Win32.ActiveCfg = Release|Win32
+		{34EF3895-C37F-4C77-B1BD-F588E162AC0A}.Release|Win32.Build.0 = Release|Win32
+		{D0EB4240-FFEA-47F5-9742-29E114642999}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D0EB4240-FFEA-47F5-9742-29E114642999}.Debug|Win32.Build.0 = Debug|Win32
+		{D0EB4240-FFEA-47F5-9742-29E114642999}.Release|Win32.ActiveCfg = Release|Win32
+		{D0EB4240-FFEA-47F5-9742-29E114642999}.Release|Win32.Build.0 = Release|Win32
+		{F7F899D3-2940-44DE-82BA-D2D7EE263A49}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F7F899D3-2940-44DE-82BA-D2D7EE263A49}.Debug|Win32.Build.0 = Debug|Win32
+		{F7F899D3-2940-44DE-82BA-D2D7EE263A49}.Release|Win32.ActiveCfg = Release|Win32
+		{F7F899D3-2940-44DE-82BA-D2D7EE263A49}.Release|Win32.Build.0 = Release|Win32
+		{556568AD-0F5F-4AC3-A6AA-8D5653A8C453}.Debug|Win32.ActiveCfg = Debug|Win32
+		{556568AD-0F5F-4AC3-A6AA-8D5653A8C453}.Debug|Win32.Build.0 = Debug|Win32
+		{556568AD-0F5F-4AC3-A6AA-8D5653A8C453}.Release|Win32.ActiveCfg = Release|Win32
+		{556568AD-0F5F-4AC3-A6AA-8D5653A8C453}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
